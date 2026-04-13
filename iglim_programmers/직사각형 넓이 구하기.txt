@@ -1,0 +1,27 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int solution(vector<vector<int>> dots) {
+    int minX = 256, maxX = -256;
+    int minY = 256, maxY = -256;
+
+    for (int i = 0; i < 4; i++) {
+        minX = min(minX, dots[i][0]);
+        maxX = max(maxX, dots[i][0]);
+        minY = min(minY, dots[i][1]);
+        maxY = max(maxY, dots[i][1]);
+    }
+
+    int width = maxX - minX;
+    int height = maxY - minY;
+
+    return width * height;
+}
+
+
+# def solution(dots):
+#     min_x, min_y = min(dots)
+#     max_x, max_y = max(dots)
+#     return (max_x - min_x) * (max_y - min_y)

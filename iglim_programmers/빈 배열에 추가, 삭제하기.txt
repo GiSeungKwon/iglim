@@ -1,0 +1,35 @@
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(vector<int> arr, vector<bool> flag) {
+    vector<int> answer;
+
+    for (int i = 0; i < arr.size(); i++) {
+        if (flag[i]) {
+            for (int idx = 0; idx < arr[i] * 2; idx++) {
+                answer.push_back(arr[i]);
+            }
+        } else {
+            for (int idx = 0; idx < arr[i]; idx++) {
+                if (!answer.empty()) {
+                    answer.pop_back();
+                }
+            }
+        }
+    }
+
+    return answer;
+}
+
+
+# def solution(arr, flag):
+#     answer = []
+#     for i in range(len(arr)):
+#         if flag[i]:
+#             for idx in range(arr[i]*2):
+#                 answer.append(arr[i])
+#         else:
+#             for idx in range(arr[i]):
+#                 answer.pop()
+#     return answer
